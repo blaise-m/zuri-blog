@@ -116,6 +116,7 @@ USE_THOUSAND_SEPARATOR = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+DISABLE_COLLECTSTATIC = 1
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
 
