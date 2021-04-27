@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <a href="{% url 'new-post' %}" class="btn btn-sm btn-info mb-3 py-1"><strong>+</strong> Create New Post</a>
+</div>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <td>Recent Zuri Posts</td>
+            <td>Author</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in post_list %}
+            <tr>
+                <td><a href="{% url 'detail' post.id %}">{{ post.title }}</a></td>
+                <td>{{ post.author.first_name }} {{ post.author.last_name }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

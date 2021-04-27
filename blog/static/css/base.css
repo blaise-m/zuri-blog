@@ -1,0 +1,90 @@
+html {
+	background-color: rgba(120,120,120,0.4);
+}
+
+body {
+	margin-right: 4vw;
+	margin-left: 4vw;
+	margin-top: 2vh;
+}
+
+header {
+	background-color: black;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	padding-left: 2vw;
+}
+
+header h1 a {
+	color: red;
+	font-size: 2rem;
+	font-family: 'Akaya Telivigala', cursive;
+}
+
+header h1 a:hover {
+	color: red;
+	font-size: 2.1rem;
+	text-decoration: none;
+}
+
+div#body {
+	background-color: rgba(10,10,10,0.8);
+	color: white;
+	padding-top: 5vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
+	min-height: 90vh;
+}
+
+table thead {
+	background-color: black;
+	font-weight: bold;
+	color: rgba(250,250,250,0.9)
+}
+
+table tbody td {
+	color: rgba(250,250,250,0.7);
+}
+
+table tbody td a {
+	color: lightblue;
+}
+
+table tbody td a:hover {
+	color: lightblue;
+	text-decoration: underline;
+}
+
+div#body p.link-text {
+	padding-bottom: 4vh;
+	font-size: 0.9rem;
+}
+
+div#body p.link-text a {
+	color: lightblue;
+}
+
+div#body p.link-text a {
+	color: lightblue;
+	text-decoration: underline;
+}
+
+div#body div.card {
+	background-color: rgba(120,120,120,0.8);
+}
+
+div#body h2.card-heading {
+	font-size: 1.2rem;
+	color: lightblue;
+	font-weight: bold;
+	/**font-family: 'Akaya Telivigala', cursive;**/
+}
+
+div#body div.card .card-header p {
+	font-size: 0.9rem;
+	color: rgba(250,250,250,0.7);
+}
+
+div#body div.card .card-body {
+	min-height: 50vh;
+}
