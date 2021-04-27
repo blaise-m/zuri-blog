@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div class="link-container">
+            <p class="link-text"><a href="{% url 'index' %}">Home</a> / Login</p>
+        </div>
+        <div>
+            <h2 class="card-heading mb-5">Log in</h2>
+            <form action="" method="post" novalidate>{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-sm btn-info px-4 mt-4">Log in</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

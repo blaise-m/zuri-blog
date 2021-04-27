@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <div>
     <a href="{% url 'new-post' %}" class="btn btn-sm btn-info mb-3 py-1"><strong>+</strong> Create New Post</a>
 </div>
+{% endif %}
+
 <table class="table table-dark">
     <thead>
         <tr>
@@ -15,7 +18,7 @@
         {% for post in post_list %}
             <tr>
                 <td><a href="{% url 'detail' post.id %}">{{ post.title }}</a></td>
-                <td>{{ post.author.first_name }} {{ post.author.last_name }}</td>
+                <td>{{ post.author.username | title }}</td>
             </tr>
         {% endfor %}
     </tbody>

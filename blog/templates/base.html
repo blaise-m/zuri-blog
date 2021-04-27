@@ -22,9 +22,20 @@
 
 <body>
 <header>
-    <h1>
-        <a href="{% url 'index' %}">The Zuri Blog</a>
-    </h1>
+    <div>
+        <h1>
+            <a href="{% url 'index' %}">Zuri Random Blog</a>
+        </h1>
+        <div class="pr-5">
+            <a href="{% url 'signup' %}" class="btn btn-sm btn-dark">Signup</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="btn btn-sm btn-dark">Logout</a>
+                <span class="float-right text-light">Welcome, {{ user.username | title }}</span>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-sm btn-dark">Login</a>
+            {% endif %}
+        </div>
+    </div>
 </header>
 
 <div id="body">

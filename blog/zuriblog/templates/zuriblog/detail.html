@@ -4,15 +4,17 @@
     <div>
         <div class="link-container">
             <p class="link-text"><a href="{% url 'index' %}">Home</a> / Blog {{ post.id }}</p>
+            {% if user.is_authenticated and user == post.author %}
             <div class="py-2">
                 <a href="{% url 'update-post' post.id %}" class="btn btn-sm btn-info">Edit Post</a>
                 <a href="{% url 'delete-post' post.id %}" class="btn btn-sm btn-danger">Delete Post</a>
             </div>
-        </div>        
+            {% endif %}
+        </div>
         <div class="card">
             <div class="card-header">
                 <h2 class="card-heading">{{ post.title }}</h2>
-                <p>By {{ post.author }}</p>
+                <p>By {{ post.author | title}}</p>
             </div>
             <div class="card-body">
                 <p>{{ post.body }}</p>
