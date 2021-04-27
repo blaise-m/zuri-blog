@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from django.urls import reverse_lazy
-from .models import Post
+from .models import Post, Comment
 
 
 class PostListView(generic.ListView):
@@ -33,3 +33,9 @@ class PostDeleteView(generic.DeleteView):
     model = Post
     template_name = 'zuriblog/delete_post.html'
     success_url = reverse_lazy('index')
+
+
+class CommentCreateView(generic.CreateView):
+    model = Comment
+    template_name = 'zuriblog/add_comment.html'
+    fields = ['body', 'post', 'author']
