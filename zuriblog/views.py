@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.urls import reverse_lazy
 from .models import Post, Comment
@@ -20,7 +20,13 @@ class PostDetailView(generic.DetailView):
 class PostCreateView(generic.CreateView):
     model = Post
     template_name = 'zuriblog/new_post.html'
-    fields = ['title', 'author', 'body']
+    fields = ['title', 'body']
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 
 class PostUpdateView(generic.UpdateView):
@@ -38,4 +44,13 @@ class PostDeleteView(generic.DeleteView):
 class CommentCreateView(generic.CreateView):
     model = Comment
     template_name = 'zuriblog/add_comment.html'
-    fields = ['body', 'post', 'author']
+    fields = ['body']
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        post_id = self.kwargs['pk']
+        post = Post.objects.get(pk=post_id)
+        self.object.post = post
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())

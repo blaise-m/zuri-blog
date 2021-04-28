@@ -23,5 +23,13 @@
                 <p>{{ post.body }}</p>
             </div>
         </div>
+        {% if post.comments %}
+            <div class="py-4">
+                <h3 style="font-size: 1.2rem; color:lightblue;">Comments</h3>            
+                {% for comment in post.comments.all %}
+                    <div class="card" style="font-size: 0.9rem;">{{ comment.body }} --- {{ comment.author | title}}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 {% endblock content %}
